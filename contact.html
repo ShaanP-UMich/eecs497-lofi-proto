@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/html5reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <header>
+        <nav class="navBar" id="nav">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars">&#8205;</i>
+            </label>
+            <!-- <a class="logo" id="navLogo" href="index.html">Swish Academy</a> -->
+            <img src="assets/Swish Academy Logo_White.png">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="contactContainer" id="contactMain">
+        <div class="contactText">
+            <h1>Contact Me</h1>
+            <p>I'd Love to chat!</p>
+        </div>
+        <div class="contactForm">
+            <form action="https://formspree.io/f/xbjbvlvb" method="POST">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <br><br>
+                <label for="lname">Last Name</label>
+                <br>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <br><br>
+                <label for="email">Personal Email</label>
+                <input type="text" id="email" name="email" placeholder="Your email...">
+                <br><br>
+                <label for="number">Phone Number</label>
+                <input type="text" id="number" name="number" placeholder="Your phone number...">
+                <br><br>
+                <label for="message">Leave a Message</label>
+                <input type="text" id="message" name="message" placeholder="Your message...">&#8205;
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </main>
+
+
+</body>
+</html>

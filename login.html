@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/html5reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Swish Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navBar" id="nav">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars">&#8205;</i>
+            </label>
+            <!-- <a class="logo" id="navLogo" href="index.html">Swish Academy</a> -->
+            <img src="assets/Swish Academy Logo_White.png">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form class="login-form" action="/accounts/?target=/" method="post" enctype="multipart/form-data">
+        <label for="user">Username</label>
+        <input type="text" name="username" id="user" placeholder="Your username..." required />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Your password..." required />
+        <div class="button-container">
+            <input type="submit" value="Login">
+            <span>Don't have an account? <a href="/accounts/create/"><strong>Sign up</strong></a></span>
+        </div>
+        <input type="hidden" name="operation" value="login" />
+    </form>
+</body>
+
+</html>
