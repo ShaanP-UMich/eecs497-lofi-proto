@@ -1,0 +1,21 @@
+#!/bin/bash
+# swishrun
+# Stop on errors
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+
+if test -e var/swish_academy.sqlite3; then
+    echo "swish_academy already db exists"
+else
+    mkdir -p var/uploads
+    sqlite3 var/swish_academy.sqlite3 < sql/schema.sql
+    sqlite3 var/swish_academy.sqlite3 < sql/data.sql
+    cp sql/uploads/* var/uploads/
+fi
+
+export FLASK_ENV=development
+FLASK_ENV=development
+export FLASK_APP=swish_academy
+FLASK_APP=swish_academy
+
+flask run --host 0.0.0.0 --port 8000

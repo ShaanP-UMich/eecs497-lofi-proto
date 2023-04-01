@@ -1,0 +1,10 @@
+#!/bin/bash
+# swishtest
+# Stop on errors
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+
+pycodestyle swish_academy
+pydocstyle swish_academy
+pylint --disable=cyclic-import --unsafe-load-any-extension=y swish_academy
+pytest -v tests

@@ -13,12 +13,12 @@ body {
 
 @font-face {
     font-family: "Cartoonist";
-    src: url("/assets/fonts/cartoonist_kooky.ttf");
+    src: url("../fonts/cartoonist_kooky.ttf") format('truetype');
 }
 
 @font-face {
     font-family: "Highway Gothic";
-    src: url("/assets/fonts/HWYGOTH.TTF");
+    src: url("../fonts/HWYGOTH.TTF") format('truetype');
 }
 
 /* HWYGWDE.TTF */
