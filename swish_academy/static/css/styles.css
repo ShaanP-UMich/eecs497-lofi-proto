@@ -333,6 +333,10 @@ p {
     font-size: 200px;
 }
 
+.logged-in-username {
+    color: orange;
+}
+
 /* LOGIN PAGE */
 /* Style for the form */
 form {
@@ -343,9 +347,13 @@ form {
     border-radius: 10px;
     font-family: "Highway Gothic"
 }
+.login-link {
+    color: blue; /* Change to the desired color */
+    /* Add any other styles as needed */
+}  
 
 /* Style for the input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -360,6 +368,23 @@ input[type=text], input[type=password] {
     align-items: center;
     justify-content: space-between;
 }
+
+.error-text {
+    color: red
+}
+.button-text {
+    color: black; /* Set the text color to black */
+  }
+  
+  .button-text a {
+    color: blue; /* Set the link text color to blue */
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+    text-decoration: underline; /* Add underline to make it look like a link */
+  }
+  
+  .button-text a:hover {
+    color: darkblue; /* Change link text color on hover */
+  }
 
 
 /* Style for the submit button */
@@ -467,4 +492,31 @@ span {
 
 #loginName a {
     color: var(--subBgColor);
+}
+
+#youtubeVideo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-container h2 {
+    color: var(--greenColor);
+}
+
+.module-item-list a {
+    color: blue;
+}
+
+.module-item-list a:hover {
+    color: purple;
+}
+
+figcaption {
+    font-family: "Highway Gothic";
+    font-size: 15px;
+    font-weight:bold;
+    margin-top: 12px;
+    text-align:center;
 }

@@ -8,12 +8,15 @@ export default class Login extends React.Component {
         this.state = {
             username: "",
             password: "",
-            operation: "login"
+            operation: "login",
+            incorrectLogin: false
         }
     }
 
-    postLoginForm = () => {
+    postLoginForm = (event) => {
+        event.preventDefault();
         const { username, password, operation } = this.state;
+        const { updateCurrentPage, getUserLoggedIn } = this.props;
         let loginFormData = new FormData();
 
         loginFormData.append('username', username);
@@ -25,14 +28,17 @@ export default class Login extends React.Component {
             url: '/accounts/',
             data: loginFormData,
             headers: { "Content-Type": "multipart/form-data" }
-        });
-    }
-
-    postLogout = () => {
-        axios({
-            method: 'post',
-            url: '/accounts/logout/'
-        });
+        }).then(() => {
+            getUserLoggedIn();
+            updateCurrentPage("home");
+            console.log("the page should go to home");
+        }).catch(error => {
+            if (error.response) {
+                if (error.response.status === 403) {
+                    this.setState({ incorrectLogin: true });
+                }
+            }
+        })
     }
 
     setUsername = (username) => {
@@ -44,17 +50,22 @@ export default class Login extends React.Component {
     }
 
     render() {
+        const { updateCurrentPage } = this.props;
+        const { incorrectLogin } = this.state;
+
         return (
-            <form className="login-form" action="" method="post" encType="multipart/form-data" >
+            <form className="login-form" onSubmit={this.postLoginForm} method="post" encType="multipart/form-data" >
                 <label htmlFor="user">Username</label>
-                <input type="text" name="username" id="user" placeholder="Your username..." onChange={(e) => { this.setUsername(e.target.value) }} />
+                <input type="text" name="username" id="user" placeholder="Your username..." onChange={(e) => { this.setUsername(e.target.value) }} required />
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Your password..." onChange={(e) => { this.setPassword(e.target.value) }} />
+                <input type="password" name="password" id="password" placeholder="Your password..." onChange={(e) => { this.setPassword(e.target.value) }} required />
                 <div className="button-container">
-                    <a onClick={this.postLoginForm} type="submit" className="button">Login</a>
-                    <a onClick={this.postLogout} type="submit" className="button">Logout</a>
-                    <span className="button-text">Don't have an account? <a href="/accounts/create/"><strong>Sign up</strong></a></span>
+                    <input type="submit" value="Login" />
+                    <span className="button-text">Don't have an account? <a onClick={() => { updateCurrentPage("signup") }}><strong>Sign up</strong></a></span>
                 </div>
+                {incorrectLogin &&
+                    <label className="error-text" >Incorrect username and/or password</label>
+                }
                 <input type="hidden" name="operation" value="login" />
             </form>
         );
